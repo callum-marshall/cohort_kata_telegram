@@ -8,13 +8,13 @@ The program takes a number `n`, then accepts lines of text and outputs lines of 
 
 ### Acceptance Criteria
 
-telegram.char_length(10)
+telegram.char_limit(10)
 telegram.text("dog") # => "dog"
 
-telegram.char_length(10)
+telegram.char_limit(10)
 telegram.text("catdogfishbird") # => "catdogfishbird"
 
-telegram.char_length(10)
+telegram.char_limit(10)
 telegram.text("cat dog fish bird") # => "cat dog fish"
 
 ### Edge Cases
