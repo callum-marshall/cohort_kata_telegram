@@ -10,25 +10,22 @@ class Telegram {
   }
 
   getText (text) {
-    const trimmedText = text.trim()
-    if (trimmedText.length <= this.charLimit) return trimmedText
-    if (trimmedText.split(' ').length === this.minimumWords) return trimmedText
-    return this.shortenedText(trimmedText)
+    text = text.trim()
+    if (text.length <= this.charLimit) return text
+    if (text.split(' ').length === this.minimumWords) return text
+    return this.shortenedText(text)
   }
 
   shortenedText (text) {
     const words = text.split(' ')
     const newText = []
     let limitCheck = 0
-    let spaces = 0
-    let short = ''
     words.forEach((word) => {
       limitCheck += word.length
-      if ((limitCheck + spaces) >= this.charLimit) short = newText.join(' ')
-      newText.push(word)
-      spaces += 1
+      if ((limitCheck) <= this.charLimit) newText.push(word)
+      limitCheck += 1
     })
-    return short
+    return newText.join(' ')
   }
 
 }

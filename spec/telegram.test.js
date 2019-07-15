@@ -24,7 +24,8 @@ describe('Telegram', () => {
 
   test('it removes any additional words after the character limit', () => {
     telegram.setCharLimit(10)
-    expect(telegram.getText('cat dog fish bird')).toBe('cat dog fish')
+    expect(telegram.getText('fire water')).toBe('fire water')
+    expect(telegram.getText('a frenchman')).toBe('a')
   })
 
 })
