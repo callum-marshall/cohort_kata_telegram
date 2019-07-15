@@ -17,4 +17,14 @@ describe('Telegram', () => {
     expect(telegram.getText('dog')).toBe('dog')
   })
 
+  test('it returns a single word even when it is over the character limit', () => {
+    telegram.setCharLimit(10)
+    expect(telegram.getText('catdogfishbird')).toBe('catdogfishbird')
+  })
+
+  test('it removes any additional words after the character limit', () => {
+    telegram.setCharLimit(10)
+    expect(telegram.getText('cat dog fish bird')).toBe('cat dog fish')
+  })
+
 })

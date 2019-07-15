@@ -24,6 +24,12 @@ telegram.getText("cat dog fish bird") # => "cat dog fish"
 
 telegram.getText("catdogfishbird") # => error "please specify a character length greater than 0"
 
+telegram.setCharLimit(10)
+telegram.getText(3) # => "input must be a string"
+
+telegram.setCharLimit(10)
+telegram.getText(null) # => "input must be a string"
+
 ### Instructions
 
 1. Clone this repo
