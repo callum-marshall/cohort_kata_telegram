@@ -8,18 +8,21 @@ The program takes a number `n`, then accepts lines of text and outputs lines of 
 
 ### Acceptance Criteria
 
-telegram.char_limit(10)
-telegram.text("dog") # => "dog"
+telegram.setCharLimit(10)
+telegram.getText("dog") # => "dog"
 
-telegram.char_limit(10)
-telegram.text("catdogfishbird") # => "catdogfishbird"
+telegram.setCharLimit(10)
+telegram.getText("catdogfishbird") # => "catdogfishbird"
 
-telegram.char_limit(10)
-telegram.text("cat dog fish bird") # => "cat dog fish"
+telegram.setCharLimit(10)
+telegram.getText("cat dog fish") # => "cat dog fish"
+
+telegram.setCharLimit(10)
+telegram.getText("cat dog fish bird") # => "cat dog fish"
 
 ### Edge Cases
 
-telegram.text("catdogfishbird") # => error "please specify a character length greater than 0"
+telegram.getText("catdogfishbird") # => error "please specify a character length greater than 0"
 
 ### Instructions
 

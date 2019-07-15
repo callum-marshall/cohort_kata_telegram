@@ -4,6 +4,10 @@ class Telegram {
     return num
   }
 
+  getText (text) {
+    return text
+  }
+
 }
 
 module.exports = {
