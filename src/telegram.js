@@ -1,14 +1,13 @@
 class Telegram {
-  constructor () {
-    this.charLimit = 0
+  constructor (charLimit) {
+    this.charLimit = charLimit
     this._minimumWords = 1
     this.words = []
     this.result = []
   }
 
-  setCharLimit (num) {
-    this.charLimit = num
-    return num
+  getCharLimit () {
+    return this.charLimit
   }
 
   getText (text) {

@@ -34,3 +34,5 @@ telegram.getText(null) # => "input must be a string"
 
 1. Clone this repo
 2. run `npm install`
+3. test with `npm test`
+4. eslint will auto-run with tests, but can be done separately with `./node_modules/.bin/eslint src spec`
