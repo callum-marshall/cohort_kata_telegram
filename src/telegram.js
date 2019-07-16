@@ -1,7 +1,9 @@
 class Telegram {
   constructor () {
     this.charLimit = 0
-    this.minimumWords = 1
+    this._minimumWords = 1
+    this.words = []
+    this.result = []
   }
 
   setCharLimit (num) {
@@ -11,21 +13,28 @@ class Telegram {
 
   getText (text) {
     text = text.trim()
-    if (text.length <= this.charLimit) return text
-    if (text.split(' ').length === this.minimumWords) return text
-    return this.shortenedText(text)
+    this.words = text.split(' ')
+    if (this._isWithinCharLimit(text.length)) return text
+    if (this._isWithinMinimumWords()) return text
+    return this._shortenText(text)
   }
 
-  shortenedText (text) {
-    const words = text.split(' ')
-    const newText = []
+  _shortenText (text) {
     let limitCheck = 0
-    words.forEach((word) => {
+    this.words.forEach((word) => {
       limitCheck += word.length
-      if ((limitCheck) <= this.charLimit) newText.push(word)
+      if ((limitCheck) <= this.charLimit) this.result.push(word)
       limitCheck += 1
     })
-    return newText.join(' ')
+    return this.result.join(' ')
+  }
+
+  _isWithinCharLimit (chars) {
+    return chars <= this.charLimit
+  }
+
+  _isWithinMinimumWords () {
+    return this.words.length <= this._minimumWords
   }
 
 }
@@ -33,8 +42,3 @@ class Telegram {
 module.exports = {
   Telegram
 }
-
-// for each word
-// add to newText
-// unless newText.length and word.length > this.charlimit
-// return newText.join(' ')
